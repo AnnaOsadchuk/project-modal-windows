@@ -77,7 +77,7 @@ font-weight: 400;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.3);
 }
-.backdrop.is-hidden {
+.is-hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -242,9 +242,9 @@ font-weight: 400;
 }
  */
 
-/* .modal-input {
+.modal-input {
   width: -webkit-fill-available;
-} */
+}
 
 .modal-close-btn{
   stroke: black;
