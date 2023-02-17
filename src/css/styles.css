@@ -242,6 +242,10 @@ font-weight: 400;
 }
  */
 
-.modal-input {
+/* .modal-input {
   width: -webkit-fill-available;
+} */
+
+.modal-close-btn{
+  stroke: black;
 }
