@@ -44,9 +44,7 @@ font-weight: 400;
 } */
 
 /* =================Button Booking================ */
-.servis-btn {
-  background-color: rgb(14, 90, 109);
-}
+
 .btn {
   font-family: 'Montserrat';
   font-style: normal;
@@ -89,12 +87,22 @@ font-weight: 400;
   transform: translate(-50%, -50%);
   width: 414px;
   height: 780px;
-  /* width:100%;
-  height: 100%; */
-
+  width: 100%;
+  height: 100%;
+  /* overflow-y: scroll; */
   background-color: var(--bg-lemon-color);
   border-radius: 2px;
 }
+.modal-room {
+  height: 780px;
+}
+.modal-table {
+  height: 688px;
+}
+.modal-price {
+  height: 572px;
+}
+
 .modal-close-btn {
   position: absolute;
   top: 16px;
@@ -108,19 +116,17 @@ font-weight: 400;
   background-color: transparent;
   border: 1px solid transparent;
   margin-bottom: 20px;
+  stroke: black;
+
   /* transition: background-color var(--trans), fill var(--trans),
     border-color var(--trans); */
 }
 
-/* .modal-close-btn:hover,
+.modal-close-btn:hover,
 .modal-close-btn:focus {
-  background-color: var(--aссent-yellow-color);
-  fill: #f4f4fd;
-  border-color: #b4b4b4;
-} */
-.icon-close {
-  fill: black;
+  stroke: var(--aссent-yellow-color);
 }
+
 /* ===============FORMA================ */
 .modal-form {
   display: flex;
@@ -150,6 +156,15 @@ font-weight: 400;
   letter-spacing: 0.02em;
   color: #c79002;
   margin-bottom: 20px;
+  padding-left: 12px;
+}
+.subtitle {
+  padding-left: 0;
+}
+
+.title-wrap {
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .modal-input {
   font-family: 'Times New Roman';
@@ -160,7 +175,7 @@ font-weight: 400;
   letter-spacing: 0.05em;
   width: 90%;
   height: 54px;
-  background-color: transparent;
+  background-color: #fffdee80;
   margin-bottom: 8px;
   border: 1px solid #c79002;
   border-radius: 1px;
@@ -177,7 +192,7 @@ font-weight: 400;
   letter-spacing: 0.05em;
   color: #808080;
 }
-.select-text-decor {
+.caption {
   font-family: 'Times New Roman';
   font-style: normal;
   font-weight: 700;
@@ -186,6 +201,16 @@ font-weight: 400;
   letter-spacing: 0.05em;
   color: #808080;
 }
+.select-text-decor {
+  font-family: 'Times New Roman';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.15;
+  letter-spacing: 0.05em;
+  color: #808080;
+}
+
 /* .select-wrapper {
   position: relative;
 }
@@ -202,7 +227,15 @@ font-weight: 400;
   cursor: pointer;
   background-color: red;
 } */
-
+.name-roome {
+  font-family: 'Times New Roman';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 21.16;
+  letter-spacing: 0.05em;
+  color: #808080;
+}
 /*======================= BUTOON============ */
 .modal-book-btn {
   width: 100%;
@@ -216,16 +249,23 @@ font-weight: 400;
   background: #000000;
   border: 1px solid var(--aссent-yellow-color);
   border-radius: 2px;
+  margin-top: 20px;
 }
 .modal-book-btn:hover,
 .modal-book-btn:focus {
   color: #000000;
   background: var(--aссent-yellow-color);
 }
-
-/* @media screen and (min-width: 414px) {
+/* .modal-input {
+  width: -webkit-fill-available;
+} */
+/* ======================MEDIA=============== */
+@media screen and (min-width: 414px) {
   .blackdrop {
     min-width: 414px;
+  }
+  .modal {
+    max-width: 414px;
   }
   .modal-input {
     width: 384px;
@@ -233,19 +273,41 @@ font-weight: 400;
   }
 }
 @media screen and (min-width: 1024px) {
+  .modal {
+    max-width: 712px;
+    max-height: 638px;
+    flex-wrap: wrap;
+    row-gap: 64px;
+    column-gap: 24px;
+    justify-content: center;
+  }
   .modal-input {
     width: 288px;
     height: 64px;
   }
+  .modal-form {
+    display: flex;
+    flex-direction: row;
+    padding-right: 60px;
+    padding-left: 60px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  .modal-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 28px;
+    column-gap: 16px;
+  }
+  /* .form-input {
+    display: flex;
+    flex-wrap: wrap;
+  } */
 }
+
 @media screen and (min-width: 1280px) {
 }
- */
 
-.modal-input {
+/* .modal-input {
   width: -webkit-fill-available;
-}
-
-.modal-close-btn{
-  stroke: black;
-}
+} */

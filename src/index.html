@@ -11,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css">
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
 
@@ -19,14 +20,14 @@
     <p>kdjefs</p>
     <button>lskncsa</button>
   </header>
-  <h2></h2>
+  <!-- <h2></h2>
   <h3></h3>
   <body>
     <section>
-      <!-- <h1>Lorem ipsum dolor sit amet.</h1> -->
-      <!-- Path to images as from index.html file -->
+      <h1>Lorem ipsum dolor sit amet.</h1>
+      Path to images as from index.html file
       <img src="./img/javascript.svg" alt="" />
-    </section>
+    </section> -->
 
     <!-- Loads the specified .html file -->
     <!-- <load ="partials/vite-promo.html" /> -->
@@ -39,32 +40,28 @@
     <footer></footer>
 
     <div class="servis-btn">
-      <button type="button" class="book-table btn">Забронювати столик</button>
+      <button type="button" class="book-room btn" data-modaltable-open>
+        Забронювати столик
+      </button>
       <button type="button" class="book-room btn" data-modal-open>
         Забронювати номер
       </button>
-      <button type="button" class="room-price btn">Переглянути ціни</button>
+      <button type="button" class="room-price btn" data-modalprice-open>Переглянути ціни</button>
     </div>
 
     <!-- Book Room Modal window -->
     <div class="blackdrop is-hidden" data-modal>
-      <div class="modal">
+      <div class="modal modal-room">
         <button type="button" class="modal-close-btn" data-modal-close>
           <svg class="icon-close" width="24" height="24">
             <use href="./icomoon/SVG/icons.svg#icon-x"></use>
           </svg>
         </button>
 
-        <!-- <button type="button" class="modal-close-btn" data-modal-close>
-          <svg class="modal-close-btn-icon" width="8" height="8">
-            <use href="./img/icons.svg#icon-close-btn"></use>
-          </svg>
-        </button> -->
-
-        <p class="modal-title">ЗАБРОНЮВАТИ НОМЕР</p>
+                <p class="modal-title">ЗАБРОНЮВАТИ НОМЕР</p>
 
         <form class="modal-form">
-          <div>
+          <div class="modal-wrap">
             <input
               id="user-name"
               class="modal-input"
@@ -72,14 +69,15 @@
               name="user-name"
               required
               placeholder="Ваше ім’я"
-              minlength="3"
+              minlength="5"
+              pattern="[А-Я][а-я]{6,15}"
             />
             <label for="user-name" class="user-name-text text"
               >На кого забронювати номер?</label
             >
           </div>
 
-          <div>
+          <div class="modal-wrap">
             <input
               id="user-phone"
               class="modal-input"
@@ -88,34 +86,35 @@
               required
               placeholder="+38 (___) ___-__-__"
               title="+38 (___) ___-__-__"
+              pattern="[\+]\d{2}[3][8]\s[\(]\d{3}[\)]
+                s\d{3}[\-]\d{2}[\-]\d{2}"
             />
             <label for="user-phone" class="user-name-text text"
               >Номер телефону</label
             >
           </div>
 
-          <div class="select-wrapper">
-            <select class="modal-input" name="type-room" id="type-room">
-              <option class="modal-input" value="two-room">
-                Двомісний номер
-              </option>
-              <option class="modal-input" value="two-room-lux">
-                Двомісний люкс
-              </option>
-              <option class="modal-input" value="thee-room">
-                Трьохмісний номер
-              </option>
-            </select>
+          <div class="select-wrapper modal-wrap">
+          <select class="modal-input" name="type-room" id="type-room">
+            <option class="modal-input" value="two-room">
+              Двомісний номер
+            </option>
+            <option class="modal-input" value="two-room-lux">
+              Двомісний люкс
+            </option>
+            <option class="modal-input" value="thee-room">
+              Трьохмісний номер
+            </option>
+          </select>
 
-            <label for="type-room" class="user-name-text text"
-              >Категорія номеру</label
-            >
+          <label for="type-room" class="user-name-text text"
+            >Категорія номеру</label
+          >
           </div>
 
+          <div class="select-wrapper modal-wrap">
           <select class="modal-input" name="date-check-in" id="date-check-in">
-            <option class="modal-input" value="today">
-              <span class="select-text-decor">Cьогодні</span>
-            </option>
+            <option class="modal-input" value="today">Cьогодні</option>
             <option class="modal-input" value="tomorrow">Завтра</option>
             <option class="modal-input" value="after-three-day">
               Через 3 дні
@@ -124,7 +123,9 @@
           <label for="date-check-in" class="user-name-text text"
             >Дата заїзду</label
           >
+          </div>
 
+          <div class="select-wrapper modal-wrap">
           <select class="modal-input" name="date-check-out" id="date-check-out">
             <option class="modal-input" value="today">Cьогодні</option>
             <option class="modal-input" value="tomorrow">Завтра</option>
@@ -133,8 +134,9 @@
             </option>
           </select>
           <label for="date-check-out" class="user-name-text text"
-            >Дата заїзду</label
+            >Дата виїзду</label
           >
+        </div>
 
           <button type="submit" class="modal-book-btn">
             ОФОРМИТИ БРОНЮВАННЯ
@@ -142,6 +144,142 @@
         </form>
       </div>
     </div>
+
+
+<!-------------- Book tabel Modal window ----------------------->
+    
+      <div class="blackdrop is-hidden" data-modaltable>
+      <div class="modal modal-table">
+        <button type="button" class="modal-close-btn" data-modaltable-close>
+          <svg class="icon-close" width="24" height="24">
+            <use href="./icomoon/SVG/icons.svg#icon-x"></use>
+          </svg>
+        </button>
+
+                <p class="modal-title">ЗАБРОНЮВАТИ СТОЛИК</p>
+
+        <form class="modal-form">
+          <div class="modal-wrap">
+            <input
+              id="user-name-table"
+              class="modal-input"
+              type="text"
+              name="user-name"
+              required
+              placeholder="Ваше ім’я"
+              minlength="5"
+              pattern="[А-Я][а-я]{6,15}"
+            />
+            <label for="user-name-table" class="user-name-text text"
+              >На кого забронювати столик?</label
+            >
+          </div>
+
+          <div class="modal-wrap">
+            <input
+              id="user-phone-table"
+              class="modal-input"
+              type="tel"
+              name="user-phone"
+              required
+              placeholder="+38 (___) ___-__-__"
+              title="+38 (___) ___-__-__"
+              pattern="[\+]\d{2}[3][8]\s[\(]\d{3}[\)]
+                s\d{3}[\-]\d{2}[\-]\d{2}"
+            />
+            <label for="user-phone-table" class="user-name-text text"
+              >Номер телефону</label
+            >
+          </div>
+
+          <div class="select-wrapper modal-wrap">
+          <select class="modal-input" name="type-room" id="number-people">
+            <option class="modal-input" value="1">1</option>
+            <option class="modal-input" value="2">2</option>
+            <option class="number-people" value="3">3</option>
+          </select>
+
+          <label for="number-people" class="user-name-text text"
+            >Столик на яку кількість осіб?</label
+          >
+          </div>
+
+          <div class="select-wrapper modal-wrap">
+          <select class="modal-input" name="date-check-in" id="date-checkin-table">
+            <option class="modal-input" value="today">Cьогодні</option>
+            <option class="modal-input" value="tomorrow">Завтра</option>
+            <option class="modal-input" value="after-three-day">
+              Через 3 дні
+            </option>
+          </select>
+          <label for="date-checkin-table" class="user-name-text text"
+            >На яку дату бронювати?</label
+          >
+          </div>
+
+                 
+          <button type="submit" class="modal-book-btn">
+            ОФОРМИТИ БРОНЮВАННЯ
+          </button>
+        </form>
+      </div>
+    </div>
+
+
+    <!------------- Room Price Modal window ------------------------>
+    
+      <div class="blackdrop is-hidden" data-modalprice>
+        <div class="modal modal-price">
+          <button type="button" class="modal-close-btn" data-modalprice-close>
+            <svg class="icon-close" width="24" height="24">
+              <use href="./icomoon/SVG/icons.svg#icon-x"></use>
+            </svg>
+          </button>
+  
+                  <p class="modal-title">ЦІНИ НА НОМЕР</p>
+
+                 <div class="title-wrap">
+                    <p class="caption" >Двомісний люкс</p>
+                    <p class="text subtitle ">Категорія номеру</p>
+                 </div >
+
+          <form class="modal-form">
+            <div class="modal-wrap">
+              <input
+                id="book-night"
+                class="modal-input"
+                type="number"
+                name="user-name"
+                placeholder="Ваше ім’я"
+              />
+              <label for="book-night" class="user-name-text text"
+                >Кількість ночей</label
+              >
+            </div>
+  
+            <div class="modal-wrap">
+              <input
+                id="price-night"
+                class="modal-input"
+                type="number"
+                name="user-phone"
+                placeholder="1000"
+              
+              />
+              <label for="price-night" class="user-name-text text"
+                >грн</label
+              >
+            </div>
+             
+                   
+            <button type="submit" class="modal-book-btn">
+              ЗАБРОНЮВАТИ НОМЕР
+            </button>
+          </form>
+        </div>
+      </div>
+      <script src="./js/modalprice.js"></script>
+    <script src="./js/modaltable.js"></script>
     <script src="./js/modal.js"></script>
   </body>
 </html>
